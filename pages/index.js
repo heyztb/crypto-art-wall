@@ -12,7 +12,10 @@ export default function Home() {
         <div className='bg-slate-800 h-[100vh] w-full'>
           <div className='pt-10 mx-auto w-96 grid grid-cols-1 space-y-1'>
             <h1 className="font-bold subpixel-antialiased h-16 text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-indigo-400 to-cyan-500">Crypto Art Wall</h1>
-            <p className="text-xl text-slate-50 text-center">A public art collection powered by Solana</p>
+            <p className="text-xl text-slate-50 text-center">A public art collection on the Solana blockchain</p>
+          </div>
+          <div className="py-10 px-10 grid grid-cols-3 space-x-4 space-y-4">
+
           </div>
         </div>
       </main>
