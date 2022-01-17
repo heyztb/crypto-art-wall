@@ -17,7 +17,7 @@ import {
 
 import '../styles/globals.css'
 import "@solana/wallet-adapter-react-ui/styles.css";
-import MenuBar from '../components/MenuBar';
+import MenuBar from '../components/common/MenuBar';
 
 function ArtWall({ Component, pageProps }) {
 
