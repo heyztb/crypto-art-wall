@@ -1,10 +1,15 @@
 import { Disclosure, Transition } from "@headlessui/react"
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import { WalletDisconnectButton, WalletMultiButton } from "@solana/wallet-adapter-react-ui"
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
+import { useRouter } from "next/router"
+import Link from "next/link"
 
 export default function MenuBar() {
+
+  const path = useRouter().pathname;
+
   return (
-    <Disclosure as="nav" className="bg-slate-800 pt-0 sm:pt-6 sticky">
+    <Disclosure as="nav" className="bg-slate-800 pt-0 sm:pt-6 sticky top-0">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -22,7 +27,26 @@ export default function MenuBar() {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x 4">
-                    <a href="#main" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Back to top</a>
+                    {path === "/" ? (
+                      <>
+                      <Link href="#main">
+                        <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                          Back to top
+                        </a>
+                      </Link>
+                      <Link href="/about">
+                        <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                          About
+                        </a>
+                      </Link>
+                      </>
+                    ) : (
+                      <Link href="/">
+                        <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                          Back to home
+                        </a>
+                      </Link>
+                  )}
                   </div>
                 </div>
               </div>
