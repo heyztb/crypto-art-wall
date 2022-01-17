@@ -1,4 +1,4 @@
-import { Disclosure } from "@headlessui/react"
+import { Disclosure, Transition } from "@headlessui/react"
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { WalletDisconnectButton, WalletMultiButton } from "@solana/wallet-adapter-react-ui"
 
@@ -27,20 +27,30 @@ export default function MenuBar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 hidden items center pr-2 sm:flex sm:static sm:inset-auto sm:ml-6 sm:pr-0 space-x-6">
-                <WalletMultiButton />
+                <WalletMultiButton className="bg-gradient-to-r from-indigo-700 via-indigo-400 to-cyan-500" />
               </div>
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              <Disclosure.Button className="space-y-4">
-                <a href="#main" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Back to top</a>
-                <WalletMultiButton />
-                <WalletDisconnectButton />
-              </Disclosure.Button>
-            </div>
-          </Disclosure.Panel>
+          <Transition
+            enter="transition duration-100 ease-out"
+            enterFrom="transform scale-95 opacity-0"
+            enterTo="transform scale-100 opacity-100"
+            leave="transition duration-75 ease-out"
+            leaveFrom="transform scale-100 opacity-100"
+            leaveTo="transform scale-95 opacity-0"
+          >
+            <Disclosure.Panel className="sm:hidden w-full">
+              <div className="px-2 pt-2 pb-3 space-y-4 mx-auto">
+                <Disclosure.Button>
+                  <a href="#main" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Back to top</a>
+                </Disclosure.Button>
+                <div>
+                  <WalletMultiButton className="bg-gradient-to-r from-indigo-700 via-indigo-400 to-cyan-500"/>
+                </div>
+              </div>
+            </Disclosure.Panel>
+        </Transition>
         </>
       )}
     </Disclosure>
