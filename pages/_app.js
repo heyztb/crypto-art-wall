@@ -19,7 +19,7 @@ import '../styles/globals.css'
 import "@solana/wallet-adapter-react-ui/styles.css";
 import MenuBar from '../components/common/MenuBar';
 
-function ArtWall({ Component, pageProps }) {
+function ArtWallApp({ Component, pageProps }) {
 
   const network = WalletAdapterNetwork.Devnet;
   const endpoint = useMemo(() => clusterApiUrl(network), [network])
@@ -45,4 +45,4 @@ function ArtWall({ Component, pageProps }) {
   )
 }
 
-export default ArtWall 
+export default ArtWallApp
