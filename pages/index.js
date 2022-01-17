@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import MenuBar from '../components/MenuBar'
 export default function Home() {
   return (
     <div>
@@ -17,9 +16,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      <footer>
-      </footer>
     </div>
   )
 }
