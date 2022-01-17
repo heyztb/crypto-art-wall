@@ -16,7 +16,7 @@ import {
 } from '@solana/wallet-adapter-react-ui';
 
 import '../styles/globals.css'
-require("@solana/wallet-adapter-react-ui/styles.css");
+import "@solana/wallet-adapter-react-ui/styles.css";
 
 function ArtWall({ Component, pageProps }) {
 
