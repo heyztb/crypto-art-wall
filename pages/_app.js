@@ -17,6 +17,7 @@ import {
 
 import '../styles/globals.css'
 import "@solana/wallet-adapter-react-ui/styles.css";
+import MenuBar from '../components/MenuBar';
 
 function ArtWall({ Component, pageProps }) {
 
@@ -36,6 +37,7 @@ function ArtWall({ Component, pageProps }) {
     <ConnectionProvider endpoint={endpoint}> 
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
+          <MenuBar />
           <Component {...pageProps } />
         </WalletModalProvider>
       </WalletProvider>
