@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useSolana } from '../../hooks/useSolana'
+import SubmitArt from './SubmitArt';
 export default function ArtWall() {
 
   const { program, artWallPubKey } = useSolana();
@@ -21,6 +22,7 @@ export default function ArtWall() {
           <li key={index}>{art.submitted_by}</li>
         )
       })}
+      <SubmitArt />
     </div>
   )
 }
