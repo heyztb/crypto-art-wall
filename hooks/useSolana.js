@@ -24,5 +24,5 @@ export function useSolana() {
   const publicKey = new Uint8Array(arr);
   const artWallPubKey = new PublicKey(publicKey).toBase58();
 
-  return { program, artWallPubKey };
+  return { provider, program, artWallPubKey };
 }
