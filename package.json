@@ -18,6 +18,7 @@
     "@solana/wallet-adapter-react-ui": "^0.9.4",
     "@solana/wallet-adapter-wallets": "^0.14.2",
     "@solana/web3.js": "^1.31.0",
+    "async-busboy": "^1.1.0",
     "next": "12.0.8",
     "prop-types": "^15.8.1",
     "react": "17.0.2",
