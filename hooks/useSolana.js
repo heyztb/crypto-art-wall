@@ -1,7 +1,7 @@
 import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
 import { Provider, Program } from "@project-serum/anchor";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
-import { useWallet } from "@solana/wallet-adapter-react";
+import { useAnchorWallet } from "@solana/wallet-adapter-react";
 
 import idl from '../idl.json';
 
@@ -13,7 +13,7 @@ const network = clusterApiUrl(WalletAdapterNetwork.Devnet);
 const connection = new Connection(network, opts.preflightCommitment);
 
 export function useSolana() {
-  const { wallet } = useWallet();
+  const wallet = useAnchorWallet();
 
   const provider = new Provider(connection, wallet, opts.preflightCommitment);
 
