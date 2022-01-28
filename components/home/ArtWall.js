@@ -14,17 +14,17 @@ export default function ArtWall() {
     } catch (e) {
       setError("Unable to fetch art collection, refresh and try again.")
     }
-  }, [artWallPubKey, program.account.artWallAccount])
+  }, [artWallPubKey])
 
   useEffect(() => {
     getCollection()
-  }, [collection, getCollection])
+  }, [getCollection])
 
   return (
     <div className='flex flex-col justify-center'>
       {!error && collection.length > 0 && collection.map((art, index) => {
         return (
-          <li key={index}>{art.submitted_by}</li>
+          <li key={index}>{art.submittedBy.toString()}</li>
         )
       })}
       {!error && collection.length === 0 && 
