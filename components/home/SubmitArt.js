@@ -1,7 +1,7 @@
-import { useWallet } from "@solana/wallet-adapter-react";
 import { useCallback } from "react"
 import { useDropzone } from "react-dropzone"
 import { useSolana } from '../../hooks/useSolana';
+import { useWallet } from "@solana/wallet-adapter-react";
 
 export default function SubmitArt() {
 
@@ -43,7 +43,7 @@ export default function SubmitArt() {
     } catch (e) {
       console.log(e);
     }
-  }, [])
+  }, [artWallPubKey, publicKey, program.rpc])
 
   const { getRootProps, getInputProps, isDragActive, isDragReject } = useDropzone({
     onDrop,
