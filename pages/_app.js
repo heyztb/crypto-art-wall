@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { Provider } from 'react-redux';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { clusterApiUrl } from '@solana/web3.js';
@@ -14,6 +15,8 @@ import {
 import {
   WalletModalProvider,
 } from '@solana/wallet-adapter-react-ui';
+
+import store from '../store';
 
 import '../styles/globals.css'
 import "@solana/wallet-adapter-react-ui/styles.css";
@@ -34,14 +37,16 @@ function ArtWallApp({ Component, pageProps }) {
   ], [network])
 
   return (
-    <ConnectionProvider endpoint={endpoint}> 
-      <WalletProvider wallets={wallets} autoConnect>
-        <WalletModalProvider>
-          <MenuBar />
-          <Component {...pageProps } />
-        </WalletModalProvider>
-      </WalletProvider>
-    </ConnectionProvider>
+    <Provider store={store}>
+      <ConnectionProvider endpoint={endpoint}> 
+        <WalletProvider wallets={wallets} autoConnect>
+          <WalletModalProvider>
+            <MenuBar />
+            <Component {...pageProps } />
+          </WalletModalProvider>
+        </WalletProvider>
+      </ConnectionProvider>
+    </Provider>
   )
 }
 
