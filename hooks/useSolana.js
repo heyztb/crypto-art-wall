@@ -11,7 +11,6 @@ const opts = {
 
 const network = clusterApiUrl(WalletAdapterNetwork.Devnet);
 const connection = new Connection(network, opts.preflightCommitment);
-
 export function useSolana() {
   const wallet = useAnchorWallet();
 

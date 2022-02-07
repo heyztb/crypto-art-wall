@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone"
 import { useSolana } from '../../hooks/useSolana';
 import { useWallet } from "@solana/wallet-adapter-react";
 
-export default function SubmitArt() {
+export default function Submit() {
 
   const { artWallPubKey, program } = useSolana();
   const { publicKey } = useWallet();
@@ -12,6 +12,7 @@ export default function SubmitArt() {
   }, [handleUpload])
 
   const handleUpload = useCallback(async (files) => {
+
     const form = new FormData();
     files.map((file) => {
       form.append(file.name, file)
@@ -32,14 +33,12 @@ export default function SubmitArt() {
 
   const uploadToSolana = useCallback(async (hash) => {
     try {
-      let tx = await program.rpc.submitArt(hash, {
+      await program.rpc.submitArt(hash, {
         accounts: {
           artwallAccount: artWallPubKey,
           user: publicKey,
         }
       });
-
-      console.log(tx);
     } catch (e) {
       console.log(e);
     }
@@ -64,9 +63,9 @@ export default function SubmitArt() {
                 { isDragActive && !isDragReject ? "Drop to upload art" : "Drag and drop or click to upload art" }
               </p>
             </div>
-            <input type="file" name="upload-art" {...getInputProps()} />
+            <input type="file" name="upload-art" {...getInputProps() } />
           </label>
-      </form>
+        </form>
       </div>
     </div>
   )
